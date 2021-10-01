@@ -12,7 +12,6 @@ class AppModule extends AbstractModule
 {
     protected function configure()
     {
-        $this->install(new ResourceModule('NaokiTsuchiya\LaravelBEAR'));
-        $this->install(new HalModule());
+        $this->install(new HalModule(new ResourceModule('NaokiTsuchiya\LaravelBEAR')));
     }
 }
