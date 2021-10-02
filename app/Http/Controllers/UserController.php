@@ -6,19 +6,11 @@ namespace App\Http\Controllers;
 
 use BEAR\Resource\ResourceInterface;
 use Illuminate\Http\Response;
-use NaokiTsuchiya\LaravelBEAR\AppModule;
-use Ray\Di\Injector;
 
 class UserController extends Controller
 {
-    private ResourceInterface $resource;
-
-    public function __construct()
+    public function __construct(private ResourceInterface $resource)
     {
-        $injector = new Injector(new AppModule(), storage_path('tmp'));
-        $resource = $injector->getInstance(ResourceInterface::class);
-        assert($resource instanceof ResourceInterface);
-        $this->resource = $resource;
     }
 
     public function __invoke(string $id): Response
