@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/{id}', UserController::class);
+Route::get('/user/{id}', UserController::class)->name('goUser');

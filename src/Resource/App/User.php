@@ -14,6 +14,9 @@ class User extends ResourceObject
     public function onGet(int $id): static
     {
         $this->body = $this->user[0];
+        $this->body['_links'] = [
+            'self' => ['href' => route('goUser', ['id' => $id], false)] // Fixme: remove laravel helper
+        ];
 
         return $this;
     }
