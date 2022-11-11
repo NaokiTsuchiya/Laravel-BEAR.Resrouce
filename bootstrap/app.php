@@ -11,9 +11,13 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+$basePath = $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__);
+$context = getenv('APP_ENV') ?: 'local';
+$app = new Ray\RayDiForLaravel\Application(
+    $basePath,
+    App\RayDi\Context\ContextProvider::get($basePath, $context)
 );
+
 
 /*
 |--------------------------------------------------------------------------
