@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 
 use BEAR\Resource\ResourceInterface;
 use Illuminate\Http\Response;
+use Ray\RayDiForLaravel\Attribute\Injectable;
 
+#[Injectable]
 class UserController extends Controller
 {
     public function __construct(private ResourceInterface $resource)
