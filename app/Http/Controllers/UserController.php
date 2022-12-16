@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function __invoke(string $id): Response
     {
-        $user = $this->resource->get('app://self/user', ['id' => (int) $id]);
+        $user = $this->resource->get('page://self/user/item', ['id' => (int) $id]);
 
         return new Response((string) $user, $user->code, $user->headers);
     }
